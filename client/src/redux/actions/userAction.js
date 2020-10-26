@@ -13,7 +13,9 @@ export const RegisterUsers = (data1) => async (dispatch) => {
         .post("/user/register", data1.newUser)
         .then((res) => {
             if (res.status === 200) {
-                alert("Registered successfully.");
+                toast.success("Registered successfully", {
+                    position: toast.POSITION.TOP_CENTER,
+                });
                 dispatch({ type: RegisterUser, payload: res.data.user });
             }
             dispatch({ type: RegisterUser, payload: res.data.user });
